@@ -80,7 +80,9 @@ static void *ExampleTableViewControllerSelectedIndex = &ExampleTableViewControll
     // implement through context
 #if UseContext == 1
     if(context == ExampleTableViewControllerSelectedIndex) {
-        [self updateLabelWithIndexPath: change[NSKeyValueChangeNewKey] color: [UIColor redColor]];
+        if(object == self.tableViewController) {
+            [self updateLabelWithIndexPath: change[NSKeyValueChangeNewKey] color: [UIColor redColor]];
+        }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
