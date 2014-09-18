@@ -41,6 +41,10 @@ static NSString *const cellIdentifier = @"cell";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void) didMoveToParentViewController:(UIViewController *)parent {
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

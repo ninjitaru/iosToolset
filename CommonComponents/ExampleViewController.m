@@ -59,6 +59,15 @@ static void *ExampleTableViewControllerSelectedIndex = &ExampleTableViewControll
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void) dealloc {
+    // view are never killed after ios 6 even under low memory
+    // so cleanup goes into dealloc
+    @try {
+        [self.tableViewController removeObserver:self forKeyPath:NSStringFromSelector(@selector(selectedIndex))];
+    }
+    @catch (NSException * __unused exception) {}
+}
+
 - (void) viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     CGFloat width = CGRectGetWidth(self.view.bounds);
