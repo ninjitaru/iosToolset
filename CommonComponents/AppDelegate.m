@@ -10,6 +10,7 @@
 #import "AppDelegate+Private.h"
 #import "Store.h"
 #import "ExampleViewController.h"
+#import "NSObject+PropertyName.h"
 
 @implementation AppDelegate
 
@@ -28,6 +29,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
  	self.window.rootViewController = [ExampleViewController new];
+    NSLog(@"%@",keypathStringForClass(UIApplication, applicationState));
     [self.window makeKeyAndVisible];
     return YES;
 }
